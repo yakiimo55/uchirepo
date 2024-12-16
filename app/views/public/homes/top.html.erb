@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Hello</h1>
+</div>
+
+<% if user_signed_in? %>
+  <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'sign_in', new_user_session_path %>
+<% end %>
