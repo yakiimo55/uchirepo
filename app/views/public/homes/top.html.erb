@@ -1,9 +1,25 @@
 <div class="container">
-  <h1>Hello</h1>
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h1>ようこそ <i class="fas fa-book"></i><strong>うちれぽ</strong> へ!!</h1>
+      <p>In <i class="fas fa-book"></i><strong>うちれぽ</strong>,</p>
+      <p>you can share and exchange your ideas, experiences, and emotions</p>
+      <p>about how you can maintain your vacant house in a better way!</p>
+
+      <div class="btn-wrapper mx-auto col-10">
+        <div class="row">
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-sm btn-info btn-block mb-3" %>
+        </div>
+        <div class="row">
+          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-sm btn-success btn-block" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <% if user_signed_in? %>
-  <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <% else %>
-  <%= link_to 'sign_in', new_user_session_path %>
+  <%= link_to 'ログイン', new_user_session_path %>
 <% end %>

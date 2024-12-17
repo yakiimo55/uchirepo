@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   scope module: :public do
     root to: 'homes#top'
-    get 'about', to: 'home#about'
+    get 'about', to: 'homes#about'
     resources :users, only: [:edit, :update, :destroy]
     resources :posts
   end
