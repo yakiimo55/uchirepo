@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>body</th>
+      <th>genre</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if posts.any? %>
+      <% posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.body %></td>
+          <td><%= post.genre.name %></td>
+          <td><%= link_to "詳細", post, class: "btn btn-outline-primary" %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan=4>
+          <div class="d-flex justify-content-center">
+            <p>該当のレコードはありません。</p>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
