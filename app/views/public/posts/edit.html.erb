@@ -1,2 +1,24 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_with model:@post do |f| %>
+      <div class="mb-3">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :body %>
+        <%= f.text_field :body, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :genre_id %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: "--選択してください--" }, { class: "form-control"} %>
+      </div>
+      <div class="my-4">
+        <%= f.submit "変更する", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

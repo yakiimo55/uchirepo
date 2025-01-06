@@ -1,2 +1,18 @@
 <h1>Public::Users#edit</h1>
 <p>Find me in app/views/public/users/edit.html.erb</p>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_with model: @user do |f| %>
+      <div class="mb-3">
+        <%= f.label :address %>
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+
+      <div class="my-4">
+        <%= f.submit "変更する", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
