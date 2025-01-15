@@ -1,0 +1,37 @@
+<h1>コメント一覧</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>コメント内容</th>
+      <th>投稿者</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @post_comments.any? %>
+      <% @post_comments.each do |post_comment| %>
+        <tr>
+          <td><%= post_comment.id %></td>
+          <td><%= post_comment.body %></td>
+          <td><%= post_comment.user.name %></td>
+          <td>
+            <%= link_to "削除", admin_post_comment_path(post_comment),
+                  method: :delete,
+                  data: { confirm: "本当に削除しますか？" },
+                  class: "btn btn-outline-primary" %>
+            </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan=4>
+          <div class="d-flex justify-content-center">
+            <p>該当のレコードはありません。</p>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

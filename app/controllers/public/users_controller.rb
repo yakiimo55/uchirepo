@@ -19,6 +19,19 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def guest_login
+    @user = User.find_or_initialize_by(email: 'guest@test.com')
+    if @user.new_record?
+      @user.assign_attributes(
+        name: 'ゲスト',
+        password: 'password'
+      )
+      @user.save
+    end
+    sign_in(@user)
+    redirect_to root_path
+  end
+
   private
 
   def user_params

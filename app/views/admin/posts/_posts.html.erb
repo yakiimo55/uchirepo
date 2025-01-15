@@ -1,0 +1,39 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>body</th>
+      <th>投稿者</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if posts.any? %>
+      <% posts.each do |post| %>
+        <tr>
+          <td><%= post.id %></td>
+          <td><%= post.title %></td>
+          <td><%= post.body %></td>
+          <td>
+            <%= link_to post.user.name, admin_user_path(post.user) %>
+          </td>
+          <td>
+            <%= link_to "削除", admin_post_path(post),
+                  method: :delete,
+                  data: { confirm: "本当に削除しますか？" },
+                  class: "btn btn-outline-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan=4>
+          <div class="d-flex justify-content-center">
+            <p>該当のレコードはありません。</p>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

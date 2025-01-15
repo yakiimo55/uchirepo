@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+
   def index
     @post = Post.new
     @posts = Post.all
@@ -8,6 +10,9 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @new_post = Post.new
+    #TODO: Viewにコメントの一覧を表示する
+    @post_comments = @post.post_comments
+    #TODO: Viewに新規コメント投稿のフォームを設置する
   end
 
   def new

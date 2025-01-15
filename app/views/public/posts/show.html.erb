@@ -1,34 +1,50 @@
 
-
-<div class="col-md-8 offset-md-1">
-      <h2>投稿の詳細</h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>
-              <%= @user.name %>
-            </td>
-            <td>
-              <%= link_to post_path(@post) do %>
-                <%= @post.title %>
-              <% end %>
-            </td>
-            <td>
-              <%= @post.body %>
-            </td>
-            <% if @post.user == current_user %>
-              <td>
-                <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-success"  %>
-              </td>
-              <td>
-                <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
-              </td>
+<div class="row">
+  <div class="col-md-6">
+    <h2>投稿の詳細</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <%= @user.name %>
+          </td>
+          <td>
+            <%= link_to post_path(@post) do %>
+              <%= @post.title %>
             <% end %>
-          </tr>
-        </tbody>
-      </table>
+          </td>
+          <td>
+            <%= @post.body %>
+          </td>
+          <% if @post.user == current_user %>
+            <td>
+              <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-success"  %>
+            </td>
+            <td>
+              <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+            </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-6">
+    <div>
+      TODO: コメントの一覧を表示する
+      @post_comments を使う
+      <% @post_comments.each do |post_comment| %>
+      <% end %>
     </div>
 
-  
+    <div>
+      TODO: コメントを投稿するフォームを作る
+      @post_comment を使う
+      <%= form_with model: @post_comment do |f| %>
+      <% end %>
+    <div>
+  </div>
 </div>
+
+
 

@@ -14,7 +14,7 @@
           <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
             <i class="fas fa-home"></i> マイページ
           <% end %>
-        </li class="nav-item">
+        </li>
         <li class="nav-item">
           <%= link_to posts_path, class: 'nav-link text-light' do %>
             <i class="fas fa-book-open"></i> 投稿一覧
@@ -27,7 +27,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to posts_path, class: 'nav-link text-light' do %>
+          <%= link_to guest_login_path, method: :post, class: 'nav-link text-light' do %>
             <i class="fa-solid fa-door-open"></i> ゲストとしてログイン
           <% end %>
         </li>

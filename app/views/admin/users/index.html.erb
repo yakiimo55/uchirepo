@@ -1,2 +1,35 @@
 <h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <%= link_to "詳細", admin_user_path(user),
+                  class: "btn btn-outline-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan=4>
+          <div class="d-flex justify-content-center">
+            <p>該当のレコードはありません。</p>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
