@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     get 'about', to: 'homes#about'
     resources :users, only: [:show, :edit, :update, :destroy]
     post 'guest_login', to: 'users#guest_login'
-    resources :posts
+    resources :posts do
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
 
   namespace :admin do
