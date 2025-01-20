@@ -13,6 +13,7 @@ class Public::PostsController < ApplicationController
     #TODO: Viewにコメントの一覧を表示する
     @post_comments = @post.post_comments
     #TODO: Viewに新規コメント投稿のフォームを設置する
+    @post_comment = PostComment.new
   end
 
   def new

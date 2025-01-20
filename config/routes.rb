@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update, :destroy]
     post 'guest_login', to: 'users#guest_login'
     resources :posts do
-      resources :post_comments, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :index, :destroy]
     end
   end
 
